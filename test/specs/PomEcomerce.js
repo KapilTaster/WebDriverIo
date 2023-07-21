@@ -1,6 +1,6 @@
-const expect= require ('chai').expect;
-const loginpage=require('../pageobjects/login.page')
-
+//const expect= require ('chai').expect;
+//const loginpage=require('../pageobjects/login.page')
+import  login_page from '../pageobjects/login.page'
 describe("ecomerce functionality", async () => {
 
 
@@ -8,8 +8,12 @@ describe("ecomerce functionality", async () => {
         const product = ['Samsung Note 8', 'Blackberry']
         await browser.url("https://rahulshettyacademy.com/loginpagePractise/")
         await browser.maximizeWindow();
-
-        login.page.login("rahulshettyacedmy","learning")
+        const obj = new login_page()
+       obj.login("rahulshettyacedmy","learning")
+       
+        
+       // login.login("rahulshettyacedmy","learning")
+       // login.page.login("rahulshettyacedmy","learning")
         
         await browser.pause(3000)
         const items = await $$("div[class='card h-100']")

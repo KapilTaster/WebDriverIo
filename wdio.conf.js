@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/pomecomerce.js'
+        './test/specs/PomEcomerce.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -131,8 +131,7 @@ export const config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000,
-       
+        timeout: 60000
     },
     //
     // =====

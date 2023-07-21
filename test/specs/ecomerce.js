@@ -1,3 +1,9 @@
+
+//var assert = require ('chai');
+import { expect  } from 'chai';
+global.expectchai= expect;
+
+
 //const expect= require ('chai').expect;
 describe("ecomerce functionality", async () => {
 
@@ -47,8 +53,13 @@ describe("ecomerce functionality", async () => {
         await $("//div[@class='suggestions']/ul[1]/li/a").click();
         await $("//label[@for='checkbox2']").click();
         await $("//input[@value='Purchase']").click();
-        await expect($("//div[@class='alert alert-success alert-dismissible']"))
-            .toHaveTextContaining(" Thank you! Your order will be delivered in next few weeks")
+        let text1= await $("//div[@class='alert alert-success alert-dismissible']").getText();
+        // await expectchai($("//div[@class='alert alert-success alert-dismissible']")).to.e
+        //    //.to(" Thank you! Your order will be delivered in next few weeks")
+        console.log(await text1)
+        await expectchai (text1).to.equal("Thank you! Your order will be delivered in next few weeks :-).")
+
+           
 
         await browser.pause(2000)
 

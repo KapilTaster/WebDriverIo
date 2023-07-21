@@ -1,25 +1,19 @@
-class loginpagePractise {
-    get  username() 
-    {
-        return $("//input[@id='username']")
-
+// login.page.js
+class LoginPage {
+    constructor() {
+      // Define web elements used on the login page
+      this.usernameInput = $("#username");
+      this.passwordInput = $("#password");
+      this.loginButton = $("button[type='submit']");
     }
-    get password()
-     {
-        return $("//input[@id='password']")
+  
+    async login(username, password) {
+      // Enter the username and password, then click the login button
+      await this.usernameInput.setValue(username);
+      await this.passwordInput.setValue(password);
+      await this.loginButton.click();
     }
-
-    get click() 
-    {
-        return $("//input[@id='signInBtn']")
-    }
-    async login( username,  password)
-     {
-        await this.username.setvalue(username)
-        await this.password.setvalue(password)
-        await this.click();
-    }
-
-}
-module.export = new login.page()
-
+  }
+  
+  export default LoginPage;
+  
